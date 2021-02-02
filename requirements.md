@@ -54,6 +54,10 @@ What stretch goals are you going to aim for?
 - A user can update their profile information
 - A user can search can find relevant information to that they need for their career transition.
 
+### Data Flow
+
+![Data Flow](./dataflow.png)
+
 
 *Non-Functional Requirements* 
 
