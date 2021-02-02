@@ -25,5 +25,10 @@ Feature Tasks: Generate a page after making a API call and displaying the inform
 Feature Tasks: Display a list of related educational oppurtunites based on that users career and training needs, from an API call.
 
 - Server: As a user, I want the application to perform quickly, so that I can search for locations frequently and reliably.
+
+Feature Tasks: Create a function to check the server for the career information.
+
 - Deploy: As a user, I want the application to perform quickly so that I can search for locations frequently and reliably.
+
+Feature Tasks: Confirm that our server is responding as expected by entering your deployed URL. Then search for a profession. Verify data is displayed properly.
 
