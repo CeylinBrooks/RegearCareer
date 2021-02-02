@@ -1,6 +1,13 @@
 *Vision*
 
 What is the vision of this product?
+
+To provide the user with a comprehensive path toward a new career.
+
+What pain point does this project solve?
+
+-This solves the pain point of finding all information regarding a new career.
+
 - To provide the user with a comprehensive path toward a new career.
 
 What pain point does this project solve?
