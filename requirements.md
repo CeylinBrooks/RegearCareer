@@ -1,8 +1,9 @@
 What is the vision of this product?
-
+To provide the user with a comprehensive path toward a new career.
 What pain point does this project solve?
-
+This solves the pain point of finding all information regarding a new career.
 Why should we care about your product?
+This product will provide information for a clear path to start a new career.
 
 
 *Scope In*
