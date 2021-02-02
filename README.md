@@ -4,6 +4,7 @@ A application for individuals searching for resources to help them with changing
 #User Stories
 
 - As a user, I want to type in a profesion so that I may find the necesssary information to make a career change.
+
 Feature Tasks: A search form that will gather information from our APIs and return the relevant information.
 
 - As a user, I would like to be able to view resources (networking oppurtunites, job oppurtunites, salary information and education oppurtunites) that is clearly presented in regard to my career search.
