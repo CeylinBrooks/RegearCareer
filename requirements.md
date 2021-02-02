@@ -45,6 +45,8 @@ What stretch goals are you going to aim for?
 - A user can search can find relevant information to that they need for their career transition.
 
 
+*Non-Functional Requirements* 
 
-
-
+- Reliability: We intend for our app to be used on a consistent basis, therefore we will ensure that is readily available. 
+- Interoperability: We are using three API's to run our app.
+- Usability: 
