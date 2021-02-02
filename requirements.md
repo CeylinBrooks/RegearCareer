@@ -11,3 +11,8 @@ Why should we care about your product?
 - The web app will provide resources to assist the user in networking.
 - The web app will provide wage/salary information.
 - The web app will provide information on colleges, apprenticeship and different certications.
+
+
+*Scope Out*
+
+- This web app will not have the ability for users to write reviews.
