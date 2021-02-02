@@ -30,5 +30,12 @@ What are your stretch goals?
 
 - Career Cafe: A place for users to have virtua coffee meetings!
 - Salary information API
-- 
+- Explore education opportunities for your new career
+
+What stretch goals are you going to aim for?
+
+- Exploring education oppurtunites
+
+
+
 
