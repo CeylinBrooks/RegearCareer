@@ -11,5 +11,9 @@ Feature Tasks: A search form that will gather information from our APIs and retu
 Feature Tasks: 
 
 - As a user, I want to be able to find related educational materials, to include technical trainings, certifaiction programs, apprentinceships and colleges. 
-- Server: As a user, I want the application to perform quickly, so that I can search for locations frequently and reliably.
-- Deploy: As a user, I want the application to perform quickly so that I can search for locations frequently and reliably.
+
+As a user, I want the application to perform quickly, so that I can search for careers frequently and reliably.
+Feature Tasks: Create a function to check the server for the career information
+
+As a user, I want the application to perform quickly so that I can search for careers frequently and reliably.
+Feature Tasks: Confirm that our server is responding as expected by entering your deployed URL. Then search for a profession. Verify data is displayed properly.
