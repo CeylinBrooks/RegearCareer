@@ -11,6 +11,9 @@ Feature Tasks: A search form that will gather information from our APIs and retu
 
 Feature Tasks: Generate a page after making a API call and displaying the information pulled from the API based on that users search criteria.
 
-- As a user, I want to be able to find related educational materials, to include technical trainings, certifaiction programs, apprentinceships and colleges. 
+- As a user, I want to be able to find related educational materials, to include technical trainings, certification programs, apprentinceships and colleges. 
+
+Feature Tasks: Display a list of related educational oppurtunites based on that users career and training needs, from an API call.
+
 - Server: As a user, I want the application to perform quickly, so that I can search for locations frequently and reliably.
 - Deploy: As a user, I want the application to perform quickly so that I can search for locations frequently and reliably.
