@@ -42,7 +42,7 @@ What stretch goals are you going to aim for?
 
 - An admin can create and delete user accounts
 - A user can update their profile information
-- A user can search can find relevant information to that they need for thier career transition.
+- A user can search can find relevant information to that they need for their career transition.
 
 
 
