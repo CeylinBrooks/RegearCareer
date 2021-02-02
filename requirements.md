@@ -59,4 +59,4 @@ What stretch goals are you going to aim for?
 
 - Reliability: We intend for our app to be used on a consistent basis, therefore we will ensure that is readily available. 
 - Interoperability: We are using three API's to run our app.
-- Usability: 
+- Usability: We intend to develop an web app that is easy for users to navigate.
