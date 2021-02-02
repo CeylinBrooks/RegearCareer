@@ -1,3 +1,5 @@
+*Vision*
+
 What is the vision of this product?
 
 What pain point does this project solve?
@@ -16,3 +18,17 @@ Why should we care about your product?
 *Scope Out*
 
 - This web app will not have the ability for users to write reviews.
+
+
+*Minimum Viable Product vs*
+
+What will your MVP functionality be?
+
+- Generating search results from three API's, rendering it to the DOM and making the web app visually appealing. 
+
+What are your stretch goals?
+
+- Career Cafe: A place for users to have virtua coffee meetings!
+- Salary information API
+- 
+
