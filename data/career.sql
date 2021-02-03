@@ -6,7 +6,9 @@ DROP TABLE IF EXISTS jobs;
 CREATE TABLE users (
   user_id SERIAL PRIMARY KEY,
   name VARCHAR(255),
-  email VARCHAR(255),
+  email VARCHAR(255)
+  zip INTEGER
+  career VARCHAR(255)
 );
 
 CREATE TABLE schools (
