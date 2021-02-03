@@ -1,0 +1,21 @@
+{
+  "name": "RegearCareer",
+  "version": "1.0.0",
+  "description": "A application for individuals searching for resources to help them with changing careers",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CeylinBrooks/RegearCareer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CeylinBrooks/RegearCareer/issues"
+  },
+  "homepage": "https://github.com/CeylinBrooks/RegearCareer#readme"
+}
