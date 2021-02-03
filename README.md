@@ -33,3 +33,18 @@ Deploy: As a user, I want the application to perform quickly so that I can searc
 
 - Feature Tasks: Confirm that our server is responding as expected by entering your deployed URL. Then search for a profession. Verify data is displayed properly.
 
+# Entity Relationship Diagram
+
+![Data Base](./DataBase.png)
+
+**User**
+- Keep tracks of user's using the site. User's are able to save jobs, schools, or meetups that they are able to look at a later time.
+
+**Jobs**
+- List of jobs that are saved on the database from an api call when a user wants to save it to their collection.
+
+**Schools**
+- List of schools that are saved on the database from an api call when a user wants to save it to their collection.
+
+**Meet-ups**
+- List of meet-ups that are saved on the database from an api call when a user wants to save it to their collection.
