@@ -28,8 +28,6 @@ client.on('error', err => {
   console.log(err);
 });
 
-// Instancing of the App
-app.listen(PORT, () => console.log(`Now listening on port ${PORT}`));
 
 // Routes
 app.get('/', homeHandler)
@@ -67,4 +65,5 @@ function resultHandler(req, res) {
 
 // Data Constructors
 
-//
+// Instancing of the App
+app.listen(PORT, () => console.log(`Now listening on port ${PORT}`));
