@@ -48,3 +48,5 @@ Deploy: As a user, I want the application to perform quickly so that I can searc
 
 **Meet-ups**
 - List of meet-ups that are saved on the database from an api call when a user wants to save it to their collection.
+
+AUTHORS: Ceylin Brooks, Michael Campbell, Terrence Simms and Mark Duenas
