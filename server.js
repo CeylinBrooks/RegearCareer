@@ -32,7 +32,7 @@ client.on('error', err => {
 // Routes
 app.get('/', homeHandler)
 app.get('results', resultHandler)
-app.get('/favorites', favoriteHandler)
+// app.get('/favorites', favoriteHandler)
 
 // SQL Routes and Calls
 app.post('/form', formHandler)
