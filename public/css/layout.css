@@ -44,13 +44,18 @@
     display: grid;
 }
 
+a {
+    background: none;
+}
+
 .links {
     text-align: center;
     padding: 30px;
     margin: 20px;
-    background-image: transparent;
-    
-
+    background: none;
+}
+label {
+    background: none;
 }
 
 body {
