@@ -23,6 +23,10 @@
    
 } 
 
+.head {
+    display: block;
+}
+
 .logo {
     text-align: center;
     padding-top: 0px;
@@ -57,6 +61,25 @@ body {
 
 }
 
-.head {
-    display: block;
-}
+.button {
+    display: inline-block;
+    padding: auto;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: rgb(3, 3, 3);
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+  }
+  
+  .button:hover {background-color: #3e8e41}
+  
+  .button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
