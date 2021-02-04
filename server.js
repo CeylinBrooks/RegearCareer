@@ -31,7 +31,7 @@ client.on('error', err => {
 
 // Routes
 app.get('/', homeHandler)
-app.get('results', resultHandler)
+app.get('/results', resultHandler)
 // app.get('/favorites', favoriteHandler)
 
 // SQL Routes and Calls
@@ -60,7 +60,7 @@ client.query(SQL, values)
 }
 
 function resultHandler(req, res) {
-
+  res.render('pages/results');
 }
 
 // Data Constructors
