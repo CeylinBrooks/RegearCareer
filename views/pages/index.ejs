@@ -2,15 +2,14 @@
 <html lang="en">
 <head>
   <%- include('../layout/head') %>
-  <!-- <link rel="stylesheet" href="styles.css"> -->
-  <link href= "index.ejs" rel="stylesheet" type="text/css" />
+ 
 </head>
 <body>
   <header>
     <%- include('../layout/header') %>
   </header>
   <main>
-    <div class = "main-form">
+    <div class = "head">
       <form action="/results" method="POST">
         <label for="name"> Full Name: </label>
         <input type="text" name="name">
