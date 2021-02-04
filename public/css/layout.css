@@ -1,0 +1,31 @@
+* {
+    background: rgb(195,193,228);
+    background: linear-gradient(90deg, rgba(195,193,228,0.850577731092437) 0%, rgba(10,186,181,1) 35%, rgba(0,212,255,1) 100%);    
+   
+}
+
+.logo {
+    text-align: center;
+    padding-top: 0px;
+    padding: 10px;
+    text-size-adjust: x-large;
+    margin: 20px;
+}
+
+.header {
+    text-align: center;
+    padding: 10px; 
+    margin: 20px;
+}
+
+.links {
+    text-align: center;
+    padding: 30px;
+    margin: 20px;
+}
+
+body {
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+}
