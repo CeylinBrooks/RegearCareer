@@ -29,23 +29,34 @@
     padding: 10px;
     text-size-adjust: x-large;
     margin: 20px;
+    
 }
 
 .header {
     text-align: center;
     padding: 10px; 
     margin: 20px;
+    background: none;
+    display: grid;
 }
 
 .links {
     text-align: center;
     padding: 30px;
     margin: 20px;
+    background-image: transparent;
+    
+
 }
 
 body {
     text-align: center;
     padding: 20px;
     margin: 20px;
+    display: grid block;
+
 }
 
+.head {
+    display: block;
+}
