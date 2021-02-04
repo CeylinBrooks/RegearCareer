@@ -7,8 +7,11 @@ CREATE TABLE users (
   user_id SERIAL PRIMARY KEY,
   name VARCHAR(255),
   email VARCHAR(255)
+<<<<<<< HEAD
+=======
   zip INTEGER
   career VARCHAR(255)
+>>>>>>> 64a377a55d73511a0c70174fe3453855bffd8c4c
 );
 
 CREATE TABLE schools (
