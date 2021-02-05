@@ -31,14 +31,19 @@ client.on('error', err => {
 
 // Routes
 app.get('/', homeHandler)
-// app.get('results', resultHandler)
+app.get('/results', resultHandler)
 // app.get ('/about', aboutHandler);
 // app.get('/favorites', favoriteHandler)
+app.get('*', errorHandler)
 
 // SQL Routes and Calls
 app.post('/results', resultHandler)
 
 // Function Handlers
+
+function errorHandler(req, res) {
+  res.render('pages/error');
+}
 
 function homeHandler(req, res) {
   res.render('pages/index')
@@ -54,23 +59,18 @@ function resultHandler(req, res) {
 
 console.log(cosUrl)
 superagent.get(cosUrl)
-.set(
-  'Authorization', `Bearer ${key}`
-)
+  .set(
+    'Authorization', `Bearer ${key}`
+  )
 
-.then(data => {
-  data.body.SchoolPrograms.forEach(item => {
-    let program = new School(item)
+  .then(data => data.body.SchoolPrograms.map(item =>  new School(item)))
+  .then (result => {
+    console.log(result);
+    res.render('pages/results', {data: result})
   })
-  
-.then (result => {
-  res.render('pages/results', {data: result})
-})
-
-})
-.catch(err => {
-  console.log(err); 
-})
+  .catch(err => {
+    console.log(err); 
+  })
 }
 
 
