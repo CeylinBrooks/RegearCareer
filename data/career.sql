@@ -1,13 +1,13 @@
-DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS schools;
 DROP TABLE IF EXISTS meetups;
 DROP TABLE IF EXISTS jobs;
+DROP TABLE IF EXISTS users CASCADE;
 
 CREATE TABLE users (
   user_id SERIAL PRIMARY KEY,
   name VARCHAR(255),
-  email VARCHAR(255)
-  zip INTEGER
+  email VARCHAR(255),
+  zip INTEGER,
   career VARCHAR(255)
 );
 
@@ -27,7 +27,7 @@ CREATE TABLE jobs (
   user_id INTEGER REFERENCES users (user_id) 
 );
 
-CREATE TABLE meet_ups (
+CREATE TABLE meetups (
   meet_up_id SERIAL PRIMARY KEY,
   title VARCHAR(255),
   type VARCHAR(255),

@@ -31,11 +31,12 @@ client.on('error', err => {
 
 // Routes
 app.get('/', homeHandler)
-app.get('results', resultHandler)
+// app.get('results', resultHandler)
+// app.get ('/about', aboutHandler);
 // app.get('/favorites', favoriteHandler)
 
 // SQL Routes and Calls
-app.post('/form', formHandler)
+app.post('/results', resultHandler)
 
 // Function Handlers
 
@@ -43,27 +44,51 @@ function homeHandler(req, res) {
   res.render('pages/index')
 }
 
-function formHandler(req, res) {
-
-let SQL = 'INSERT INTO users (name, email, zip, career) VALUES ($1, $2, $3, $4);'
-
-let values = [req.body.name, req.body.email, req.body.zip, req.body.career];
-
-client.query(SQL, values)
-.then (result => {
-  res.redirect(``)
-})
-.catch ( err => {
- console.log(err); 
-})
-
-}
-
 function resultHandler(req, res) {
+  let keyword = req.body.career;
+  let zip = req.body.zipcode;
+  let key = process.env.COS_APIKEY
+  let user = process.env.COS_USERID
+  let cosUrl = `https://api.careeronestop.org/v1/training/${user}/${keyword}/${zip}/150/0/0/0/0/0/0/0/0/10`;
 
+
+console.log(cosUrl)
+superagent.get(cosUrl)
+.set(
+  'Authorization', `Bearer ${key}`
+)
+
+.then(data => {
+  data.body.SchoolPrograms.forEach(item => {
+    let program = new School(item)
+    console.log(item)
+    console.log(program)
+  })
+})
+.catch(err => {
+  console.log(err); 
+})
 }
+
+
+// function resultHandler(req, res) {
+
+// }
 
 // Data Constructors
+
+function School(obj) {
+this.schoolName = obj.SchoolName
+this.schoolUrl = obj.SchoolUrl
+this.address = obj.Address
+this.city = obj.City
+this.stateName = obj.StateName
+this.zip = obj.Zip
+this.phone = obj.Phone
+this.distance = obj.Distance
+this.programName = obj.ProgramName
+this.programLength = obj.ProgramLength
+}
 
 // Instancing of the App
 app.listen(PORT, () => console.log(`Now listening on port ${PORT}`));
