@@ -34,7 +34,7 @@
     padding-top: 0px;
     padding: 10px;
     text-size-adjust: x-large;
-    margin: 20px;
+    margin-bottom: 10px;
     
 }
 
@@ -45,7 +45,7 @@
 .header {
     text-align: center;
     padding: 10px; 
-    margin: 20px;
+    margin-bottom: 10px;
     background: none;
     display: grid;
     font-family: 'BioRhyme', serif;
@@ -61,7 +61,7 @@ a {
 .links {
     text-align: center;
     padding: 30px;
-    margin: 20px;
+    margin: 5px;
     background: none;
     font-family: 'BioRhyme', serif;
     font-family: 'MuseoModerno', cursive;
@@ -95,7 +95,7 @@ margin:10px;
 body {
     text-align: center;
     padding: 20px;
-    margin: 20px;
+    margin: 5px;
     display: grid block;
 
 }
@@ -134,6 +134,6 @@ body {
   .footer{
     font-family: 'BioRhyme', serif;
     font-family: 'MuseoModerno', cursive;
-    size: 50px;
+    margin-top: 10px;
 }
 
