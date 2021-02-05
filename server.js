@@ -33,11 +33,16 @@ client.on('error', err => {
 app.get('/', homeHandler)
 app.get('/results', resultHandler)
 // app.get('/favorites', favoriteHandler)
+app.get('*', errorHandler)
 
 // SQL Routes and Calls
 app.post('/form', formHandler)
 
 // Function Handlers
+
+function errorHandler(req, res) {
+  res.render('pages/error');
+}
 
 function homeHandler(req, res) {
   res.render('pages/index')
