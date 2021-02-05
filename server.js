@@ -61,9 +61,12 @@ superagent.get(cosUrl)
 .then(data => {
   data.body.SchoolPrograms.forEach(item => {
     let program = new School(item)
-    console.log(item)
-    console.log(program)
   })
+  
+.then (result => {
+  res.render('pages/results', {data: result})
+})
+
 })
 .catch(err => {
   console.log(err); 

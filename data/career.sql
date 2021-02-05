@@ -1,8 +1,13 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> e01b66eaeda2c15efa786df27735faedafde4258
 DROP TABLE IF EXISTS schools;
 DROP TABLE IF EXISTS meetups;
 DROP TABLE IF EXISTS jobs;
 DROP TABLE IF EXISTS users CASCADE;
 
+<<<<<<< HEAD
 CREATE TABLE users (
   user_id SERIAL PRIMARY KEY,
   name VARCHAR(255),
@@ -11,27 +16,27 @@ CREATE TABLE users (
   career VARCHAR(255)
 );
 
+=======
+>>>>>>> e01b66eaeda2c15efa786df27735faedafde4258
 CREATE TABLE schools (
   school_id SERIAL PRIMARY KEY,
   name VARCHAR(255),
   type VARCHAR(255),
-  tuition INTEGER,
-  user_id INTEGER REFERENCES users (user_id) 
+  description VARCHAR(255),
+  tuition INTEGER
 );
 
 CREATE TABLE jobs (
   job_id SERIAL PRIMARY KEY,
   title VARCHAR(255),
   salary INTEGER,
-  entry_level BOOLEAN,
-  user_id INTEGER REFERENCES users (user_id) 
+  seniority_level VARCHAR(255)
 );
 
 CREATE TABLE meetups (
   meet_up_id SERIAL PRIMARY KEY,
   title VARCHAR(255),
   type VARCHAR(255),
-  local BOOLEAN,
-  date DATE,
-  user_id INTEGER REFERENCES users (user_id)
+  location VARCHAR(255),
+  date DATE
 );

@@ -2,13 +2,15 @@
 <html lang="en">
 <head>
   <%- include('../layout/head') %>
+ 
 </head>
 <body>
+  <div class="container">
   <header>
     <%- include('../layout/header') %>
   </header>
   <main>
-    <div class = "main-form">
+    <div class = "head">
       <form action="/results" method="POST">
         <label for="name"> Full Name: </label>
         <input type="text" name="name">
@@ -22,12 +24,13 @@
         <label for="career"> Career Interest: </label>
         <input type="text" name="career">
         
-        <button> Submit </button>
+        <button class="button"> Regear </button>
       </form>
     </div>
   </main>
   <footer>
     <%- include('../layout/footer') %>
   </footer>
+</div>
 </body>
 </html>
