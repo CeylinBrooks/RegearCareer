@@ -52,11 +52,7 @@
 font-family: 'MuseoModerno', cursive;
 }
 
-.footer{
-    font-family: 'BioRhyme', serif;
-    font-family: 'MuseoModerno', cursive;
-    size: 50px;
-}
+
 
 a {
     background: none;
@@ -71,9 +67,6 @@ a {
     font-family: 'MuseoModerno', cursive;
 }
 
-.links2{
-    size: 50px;
-}
 
 form {
     display: inline-block;
@@ -81,6 +74,7 @@ form {
     margin:auto;
     padding: 10%;
     background: none;
+    margin: 10px;
   
 }
 
@@ -137,3 +131,9 @@ body {
     box-shadow: 0 5px #666;
     transform: translateY(4px);
   }
+  .footer{
+    font-family: 'BioRhyme', serif;
+    font-family: 'MuseoModerno', cursive;
+    size: 50px;
+}
+
