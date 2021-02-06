@@ -31,8 +31,8 @@ client.on('error', err => {
 
 // Routes
 app.get('/', homeHandler)
-//app.get('/results', resultHandler)
-// app.get ('/about', aboutHandler);
+// app.get('/results', resultHandler)
+app.get ('/aboutus', aboutHandler);
 // app.get('/favorites', favoriteHandler)
 app.get('*', errorHandler)
 
@@ -40,6 +40,9 @@ app.get('*', errorHandler)
 app.post('/results', resultHandler)
 
 // Function Handlers
+function aboutHandler( req, res ) {
+  res.render('pages/about-us');
+}
 
 function errorHandler(req, res) {
   res.render('pages/error');
@@ -50,7 +53,6 @@ function homeHandler(req, res) {
 }
 
 function resultHandler(req, res) {
-  let apiArray = []
   let keyword = req.body.career;
   let zip = req.body.zipcode;
   let key = process.env.COS_APIKEY
@@ -61,33 +63,45 @@ function resultHandler(req, res) {
 
 
 superagent.get(cosUrl)
-  .set(
-    'Authorization', `Bearer ${key}`
-  )
+  .set('Authorization', `Bearer ${key}`)
 
   .then(data => data.body.SchoolPrograms.map(item =>  new School(item)))
-  .then (result => {
-    console.log(result);
-    res.render('pages/results', {data: result})
+  .then (school => {
+    console.log('THIS IS THE SCHOOL LIST', school);
+
+    // Second SUPERAGENT CALL
+    superagent.get(cosUrl2)
+    .set(
+      'Authorization', `Bearer ${key}`
+    )
+    .then(data2 =>  data2.body.Jobs.map( item2 => new Career(item2)))
+    .then(job => {
+      console.log('THIS IS THE JOB LIST', job);
+      res.render('pages/results', {school: school, job: job });
+    })
+    // END OF SECOND SUPER AGENT CALL
+
+    // res.render('pages/results', {data: result})
   })
+
   .catch(err => {
     console.log(err); 
   })
 
 
-  superagent.get(cosUrl2)
-  .set(
-    'Authorization', `Bearer ${key}`
-  )
+//   superagent.get(cosUrl2)
+//   .set(
+//     'Authorization', `Bearer ${key}`
+//   )
 
-  .then(data2 => data2.body.Jobs.map(item =>  new Career (item)))
-  .then (result2 => {
-    console.log(result2);
-    // res.render('pages/results', {job: result2})
-  })
-  .catch(err => {
-    console.log(err); 
-  })
+//   .then(data2 => data2.body.Jobs.map(item =>  new Career (item)))
+//   .then (result2 => {
+//     console.log(result2);
+//     // res.render('pages/results', {job: result2})
+//   })
+//   .catch(err => {
+//     console.log(err); 
+//   })
 }
 
 
@@ -98,16 +112,16 @@ superagent.get(cosUrl)
 // Data Constructors
 
 function School(obj) {
-this.schoolName = obj.SchoolName
-this.schoolUrl = obj.SchoolUrl
-this.address = obj.Address
-this.city = obj.City
-this.stateName = obj.StateName
-this.zip = obj.Zip
-this.phone = obj.Phone
-this.distance = obj.Distance
-this.programName = obj.ProgramName
-this.programLength = obj.ProgramLength
+  this.schoolName = obj.SchoolName
+  this.schoolUrl = obj.SchoolUrl
+  this.address = obj.Address
+  this.city = obj.City
+  this.stateName = obj.StateName
+  this.zip = obj.Zip
+  this.phone = obj.Phone
+  this.distance = obj.Distance
+  this.programName = obj.ProgramName
+  this.programLength = obj.ProgramLength
 }
 
 function Career(obj) {
