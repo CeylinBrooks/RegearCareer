@@ -53,14 +53,16 @@ function homeHandler(req, res) {
 }
 
 function resultHandler(req, res) {
+  let apiArray = []
   let keyword = req.body.career;
   let zip = req.body.zipcode;
   let key = process.env.COS_APIKEY
   let user = process.env.COS_USERID
   let cosUrl = `https://api.careeronestop.org/v1/training/${user}/${keyword}/${zip}/150/0/0/0/0/0/0/0/0/10`;
+  let cosUrl2 = `https://api.careeronestop.org/v1/jobsearch/${user}/${keyword}/${zip}/150/0/0/0/10/7?source=NLx&showFilters=false`
 
 
-console.log(cosUrl)
+
 superagent.get(cosUrl)
   .set(
     'Authorization', `Bearer ${key}`
@@ -70,6 +72,21 @@ superagent.get(cosUrl)
   .then (result => {
     console.log(result);
     res.render('pages/results', {data: result})
+  })
+  .catch(err => {
+    console.log(err); 
+  })
+
+
+  superagent.get(cosUrl2)
+  .set(
+    'Authorization', `Bearer ${key}`
+  )
+
+  .then(data2 => data2.body.Jobs.map(item =>  new Career (item)))
+  .then (result2 => {
+    console.log(result2);
+    // res.render('pages/results', {job: result2})
   })
   .catch(err => {
     console.log(err); 
@@ -94,6 +111,14 @@ this.phone = obj.Phone
 this.distance = obj.Distance
 this.programName = obj.ProgramName
 this.programLength = obj.ProgramLength
+}
+
+function Career(obj) {
+  this.jobTitle = obj.JobTitle
+  this.company = obj.Company
+  this.date = obj.AccquisitionDate
+  this.url = obj.URL
+  this.location = obj.Location
 }
 
 // Instancing of the App
