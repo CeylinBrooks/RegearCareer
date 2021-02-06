@@ -60,7 +60,7 @@ a {
 
 .links {
     text-align: center;
-    padding: 30px;
+    padding: 5px;
     margin: 5px;
     background: none;
     font-family: 'BioRhyme', serif;
@@ -72,7 +72,7 @@ form {
     display: inline-block;
     position: relative;
     margin: 5px;
-    padding: 10%;
+    padding: 5%;
     background: none;
   
 }
