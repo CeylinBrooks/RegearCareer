@@ -11,15 +11,15 @@
     <div class="schools">
       <h2> Education Opportunities </h2>
       <div class="name-pic">
-        <h3> <%= data[0].schoolName %> </h3>
-        <a href="<%= data[0].schoolUrl %>"> Find out more info </a>
+        <h3> <%= school[0].schoolName %> </h3>
+        <a href="<%= school[0].schoolUrl %>"> Find out more info </a>
       </div>
       <div class="description">
-        <h4> <%= data[0].address %></h4>
-        <h4> <%= data[0].city %>, <%= data[0].stateName %> </h4>
-        <h6> Phone: <%= data[0].phone %> </h6>
-        <p> Program Name: <%= data[0].programName %></p>
-        <p> Program Length: <%= data[0].programLength[0].Value %> </p>
+        <h4> <%= school[0].address %></h4>
+        <h4> <%= school[0].city %>, <%= school[0].stateName %> </h4>
+        <h6> Phone: <%= school[0].phone %> </h6>
+        <p> Program Name: <%= school[0].programName %></p>
+        <p> Program Length: <%= school[0].programLength[0].Value %> </p>
         <a href="/"> Expand </a>
       </div>
     </div>
@@ -42,13 +42,14 @@
     <div class="jobs">
       <h2> Work Opportunities </h2>
       <div class="name-pic">
-        <h3> JOB TITLE </h3>
+        <h3> <%= job[0].jobTitle %> </h3>
         <img src="/" alt="companyPic">
       </div>
       <div class="description">
-        <h4> TYPE OF JOB </h4>
-        <h6> SENIORITY LEVEL </h6>
-        <p> JOB DESCRIPTION GOES HERE </p>
+        <h4> Company: <%= job[0].company %> </h4>
+        <h6> <%= job[0].location %>  </h6>
+        <p> Job Posted: <%= job[0].date %>  </p>
+        <a href="<%= job[0].url %>"> Company Site </a>
         <a href="/"> Expand </a>
       </div>
     </div>
