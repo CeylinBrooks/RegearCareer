@@ -32,7 +32,7 @@ client.on('error', err => {
 // Routes
 app.get('/', homeHandler)
 app.get('/results', resultHandler)
-// app.get ('/about', aboutHandler);
+app.get ('/aboutus', aboutHandler);
 // app.get('/favorites', favoriteHandler)
 app.get('*', errorHandler)
 
@@ -40,6 +40,9 @@ app.get('*', errorHandler)
 app.post('/results', resultHandler)
 
 // Function Handlers
+function aboutHandler( req, res ) {
+  res.render('pages/about-us');
+}
 
 function errorHandler(req, res) {
   res.render('pages/error');
