@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
   <%- include('../layout/head') %>
+  <link href="https://fonts.googleapis.com/css2?family=BioRhyme&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=BioRhyme&family=MuseoModerno:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
@@ -21,6 +24,7 @@
         <p> Program Name: <%= school[0].programName %></p>
         <p> Program Length: <%= school[0].programLength[0].Value %> </p>
         <a href="/"> Expand </a>
+        <p>~~</p>
       </div>
     </div>
 
@@ -28,7 +32,7 @@
       <h2> Meet Ups </h2>
       <div class="name-pic">
         <h3> NAME MEET-UP </h3>
-        <img src="/" alt="meetupPic">
+        <!-- <img src="/" alt="meetupPic"> -->
       </div>
       <div class="description">
         <h4> TYPE OF MEETING </h4>
@@ -36,6 +40,7 @@
         <p> DESCRIPTION GOES HERE </p>
         <p> DATE </p>
         <a href="/"> Expand </a>
+        <p> ~~</p>
       </div>
     </div>
 
@@ -51,6 +56,7 @@
         <p> Job Posted: <%= job[0].date %>  </p>
         <a href="<%= job[0].url %>"> Company Site </a>
         <a href="/"> Expand </a>
+        <p>~~</p>
       </div>
     </div>
       
