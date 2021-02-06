@@ -136,3 +136,16 @@ body {
     margin-top: 10px;
 }
 
+.schools, .meetup, .jobs {
+    display: grid;
+    grid-template-columns: 1fr ;
+    grid-gap: 20px;
+    border: solid black 1px;
+    padding: .5em;
+    text-align: center;
+    background: none;
+    overflow-y: auto;
+    font-family: 'BioRhyme', serif;
+
+}
+

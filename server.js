@@ -31,7 +31,7 @@ client.on('error', err => {
 
 // Routes
 app.get('/', homeHandler)
-app.get('/results', resultHandler)
+//app.get('/results', resultHandler)
 // app.get ('/about', aboutHandler);
 // app.get('/favorites', favoriteHandler)
 app.get('*', errorHandler)
