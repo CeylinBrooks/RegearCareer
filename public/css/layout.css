@@ -71,10 +71,9 @@ a {
 form {
     display: inline-block;
     position: relative;
-    margin:auto;
+    margin: 5px;
     padding: 10%;
     background: none;
-    margin: 10px;
   
 }
 
