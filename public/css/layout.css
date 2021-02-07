@@ -130,22 +130,37 @@ body {
     box-shadow: 0 5px #666;
     transform: translateY(4px);
   }
-  .footer{
-    font-family: 'BioRhyme', serif;
-    font-family: 'MuseoModerno', cursive;
-    margin-top: 10px;
-}
+  
+  .schools, .meetup, .jobs {
+      display: grid;
+      grid-template-columns: 1fr ;
+      grid-gap: 20px;
+      border: solid black 1px;
+      padding: .5em;
+      text-align: center;
+      background: none;
+      overflow-y: auto;
+      font-family: 'BioRhyme', serif;
+      
+    }
+    
+    .groupMember {
+        display: grid;
+        border: solid black 1px;
+        grid-gap:20px;
+        grid-template-columns: repeat(auto-fit);
+        overflow:auto;
+        
+    }
+   
+    .links2{
+        size: 30px;
 
-.schools, .meetup, .jobs {
-    display: grid;
-    grid-template-columns: 1fr ;
-    grid-gap: 20px;
-    border: solid black 1px;
-    padding: .5em;
-    text-align: center;
-    background: none;
-    overflow-y: auto;
-    font-family: 'BioRhyme', serif;
-
-}
-
+    }
+    
+    
+    .footer{
+      font-family: 'BioRhyme', serif;
+      font-family: 'MuseoModerno', cursive;
+      margin-top: 10px;
+  }
