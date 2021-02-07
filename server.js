@@ -6,6 +6,7 @@ const express = require('express');
 const superagent = require('superagent');
 const pg = require('pg');
 const methodOverride = require('method-override');
+const cors = require('cors');
 
 
 // Creation of the Server
@@ -15,6 +16,7 @@ const PORT = process.env.PORT || 3000;
 // Setup of EJS Templating
 app.set('view engine', 'ejs');
 
+app.use(cors());
 app.use(express.static('./public'));
 app.use(express.urlencoded({ extended: true }));
 
