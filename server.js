@@ -59,9 +59,9 @@ function resultHandler(req, res) {
   let zip = req.body.zipcode;
   let key = process.env.COS_APIKEY
   let user = process.env.COS_USERID
-  let cosUrl = `https://api.careeronestop.org/v1/training/${user}/${keyword}/${zip}/150/0/0/0/0/0/0/0/0/10`;
-  let cosUrl2 = `https://api.careeronestop.org/v1/jobsearch/${user}/${keyword}/${zip}/150/0/0/0/10/7?source=NLx&showFilters=false`
-  let meetupUrl = `https://api.careeronestop.org/v1/ajcfinder/${user}/${zip}/25/0/0/0/0/0/0/0/10`;
+  let cosUrl = `https://api.careeronestop.org/v1/training/${user}/${keyword}/${zip}/150/0/0/0/0/0/0/0/0/3`;
+  let cosUrl2 = `https://api.careeronestop.org/v1/jobsearch/${user}/${keyword}/${zip}/150/0/0/0/3/14?source=NLx&showFilters=false`
+  let meetupUrl = `https://api.careeronestop.org/v1/ajcfinder/${user}/${zip}/25/0/0/0/0/0/0/0/3`;
 
 
 superagent.get(cosUrl)
@@ -69,54 +69,28 @@ superagent.get(cosUrl)
 
   .then(data => data.body.SchoolPrograms.map(item =>  new School(item)))
   .then (school => {
-    console.log('THIS IS THE SCHOOL LIST', school);
-
     // Second SUPERAGENT CALL
     superagent.get(cosUrl2)
       .set('Authorization', `Bearer ${key}`)
       .then(data2 =>  data2.body.Jobs.map( item2 => new Career(item2)))
       .then(job => {
-        console.log('THIS IS THE JOB LIST', job);
+    // END OF SECOND SUPER AGENT CALL
         
         //Third API CALL
         superagent.get(meetupUrl)
           .set('Authorization', `Bearer ${key}`)
           .then(data3 => data3.body.OneStopCenterList.map( item3 => new Meetup(item3)))
           .then(meetUp => {
-            console.log('THIS IS THE JOB CENTERS', meetUp)
+            //FINAL RENDER OF ALL 3 CALLS
             res.render('pages/results', {school: school, job: job, meetUp: meetUp})
           })
-        
+      
       })
-    // END OF SECOND SUPER AGENT CALL
-
-    
   })
-
   .catch(err => {
     console.log(err); 
   })
-
-
-//   superagent.get(cosUrl2)
-//   .set(
-//     'Authorization', `Bearer ${key}`
-//   )
-
-//   .then(data2 => data2.body.Jobs.map(item =>  new Career (item)))
-//   .then (result2 => {
-//     console.log(result2);
-//     // res.render('pages/results', {job: result2})
-//   })
-//   .catch(err => {
-//     console.log(err); 
-//   })
 }
-
-
-// function resultHandler(req, res) {
-
-// }
 
 // Data Constructors
 
