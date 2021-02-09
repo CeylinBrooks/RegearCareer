@@ -29,16 +29,15 @@
     </div>
 
     <div class="meetup">
-      <h2> Meet Ups </h2>
+      <h2> Job Centers </h2>
       <div class="name-pic">
-        <h3> NAME MEET-UP </h3>
-        <!-- <img src="/" alt="meetupPic"> -->
+        <h3> <%= meetUp[0].meetUpName %> </h3>
       </div>
       <div class="description">
-        <h4> TYPE OF MEETING </h4>
-        <h6> LOCATION </h6>
-        <p> DESCRIPTION GOES HERE </p>
-        <p> DATE </p>
+        <h4> <%= meetUp[0].address %> </h4>
+        <h6> <%= meetUp[0].hours %> </h6>
+        <p> <%= meetUp[0].phone %> </p>
+        <a href="<%= meetUp[0].website %>"></a>
         <a href="/"> Expand </a>
         <p> ~~</p>
       </div>
@@ -48,7 +47,6 @@
       <h2> Work Opportunities </h2>
       <div class="name-pic">
         <h3> <%= job[0].jobTitle %> </h3>
-        <img src="/" alt="companyPic">
       </div>
       <div class="description">
         <h4> Company: <%= job[0].company %> </h4>

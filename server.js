@@ -61,7 +61,7 @@ function resultHandler(req, res) {
   let user = process.env.COS_USERID
   let cosUrl = `https://api.careeronestop.org/v1/training/${user}/${keyword}/${zip}/150/0/0/0/0/0/0/0/0/10`;
   let cosUrl2 = `https://api.careeronestop.org/v1/jobsearch/${user}/${keyword}/${zip}/150/0/0/0/10/7?source=NLx&showFilters=false`
-
+  let meetupUrl = `https://api.careeronestop.org/v1/ajcfinder/${user}/${zip}/25/0/0/0/0/0/0/0/10`;
 
 
 superagent.get(cosUrl)
@@ -73,17 +73,24 @@ superagent.get(cosUrl)
 
     // Second SUPERAGENT CALL
     superagent.get(cosUrl2)
-    .set(
-      'Authorization', `Bearer ${key}`
-    )
-    .then(data2 =>  data2.body.Jobs.map( item2 => new Career(item2)))
-    .then(job => {
-      console.log('THIS IS THE JOB LIST', job);
-      res.render('pages/results', {school: school, job: job });
-    })
+      .set('Authorization', `Bearer ${key}`)
+      .then(data2 =>  data2.body.Jobs.map( item2 => new Career(item2)))
+      .then(job => {
+        console.log('THIS IS THE JOB LIST', job);
+        
+        //Third API CALL
+        superagent.get(meetupUrl)
+          .set('Authorization', `Bearer ${key}`)
+          .then(data3 => data3.body.OneStopCenterList.map( item3 => new Meetup(item3)))
+          .then(meetUp => {
+            console.log('THIS IS THE JOB CENTERS', meetUp)
+            res.render('pages/results', {school: school, job: job, meetUp: meetUp})
+          })
+        
+      })
     // END OF SECOND SUPER AGENT CALL
 
-    // res.render('pages/results', {data: result})
+    
   })
 
   .catch(err => {
@@ -133,6 +140,16 @@ function Career(obj) {
   this.url = obj.URL
   this.location = obj.Location
 }
+
+function Meetup(obj) {
+  this.meetUpName = obj.Name
+  this.address = `${obj.Address1} ${obj.Address2}, ${obj.City} ${obj.StateName}`
+  this.phone = obj.Phone
+  this.website = obj.WebSiteUrl
+  this.hours = obj.OpenHour
+}
+
+
 
 // Instancing of the App
 app.listen(PORT, () => console.log(`Now listening on port ${PORT}`));

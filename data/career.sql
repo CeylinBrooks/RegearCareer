@@ -21,8 +21,8 @@ CREATE TABLE jobs (
 
 CREATE TABLE meetups (
   meet_up_id SERIAL PRIMARY KEY,
-  title VARCHAR(255),
-  type VARCHAR(255),
-  location VARCHAR(255),
-  date DATE
+  name VARCHAR(255),
+  address VARCHAR(255),
+  website VARCHAR(255),
+  hours VARCHAR(255)
 );
