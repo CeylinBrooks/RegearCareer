@@ -34,7 +34,7 @@ client.on('error', err => {
 // Routes
 app.get('/', homeHandler)
 // app.get('/results', resultHandler)
-app.get ('/aboutus', aboutHandler);
+app.get('/aboutus', aboutHandler);
 // app.get('/favorites', favoriteHandler)
 app.get('*', errorHandler)
 
@@ -42,7 +42,7 @@ app.get('*', errorHandler)
 app.post('/results', resultHandler)
 
 // Function Handlers
-function aboutHandler( req, res ) {
+function aboutHandler(req, res) {
   res.render('pages/about-us');
 }
 
@@ -54,6 +54,8 @@ function homeHandler(req, res) {
   res.render('pages/index')
 }
 
+
+
 function resultHandler(req, res) {
   let keyword = req.body.career;
   let zip = req.body.zipcode;
@@ -61,36 +63,44 @@ function resultHandler(req, res) {
   let user = process.env.COS_USERID
   let cosUrl = `https://api.careeronestop.org/v1/training/${user}/${keyword}/${zip}/150/0/0/0/0/0/0/0/0/3`;
   let cosUrl2 = `https://api.careeronestop.org/v1/jobsearch/${user}/${keyword}/${zip}/150/0/0/0/3/14?source=NLx&showFilters=false`
+
   let meetupUrl = `https://api.careeronestop.org/v1/ajcfinder/${user}/${zip}/25/0/0/0/0/0/0/0/3`;
 
 
-superagent.get(cosUrl)
-  .set('Authorization', `Bearer ${key}`)
+  superagent.get(cosUrl)
+    .set('Authorization', `Bearer ${key}`)
 
-  .then(data => data.body.SchoolPrograms.map(item =>  new School(item)))
-  .then (school => {
-    // Second SUPERAGENT CALL
-    superagent.get(cosUrl2)
-      .set('Authorization', `Bearer ${key}`)
-      .then(data2 =>  data2.body.Jobs.map( item2 => new Career(item2)))
-      .then(job => {
+    .then(data => data.body.SchoolPrograms.map(item => new School(item)))
+    .then(school => {
+      // Second SUPERAGENT CALL
+      superagent.get(cosUrl2)
+        .set(
+          'Authorization', `Bearer ${key}`
+        )
+        .then(data2 => data2.body.Jobs.map(item2 => new Career(item2)))
+        .then(job => {
     // END OF SECOND SUPER AGENT CALL
-        
-        //Third API CALL
-        superagent.get(meetupUrl)
-          .set('Authorization', `Bearer ${key}`)
-          .then(data3 => data3.body.OneStopCenterList.map( item3 => new Meetup(item3)))
-          .then(meetUp => {
-            //FINAL RENDER OF ALL 3 CALLS
-            res.render('pages/results', {school: school, job: job, meetUp: meetUp})
-          })
-      
-      })
+
+      //Third API CALL
+      superagent.get(meetupUrl)
+        .set('Authorization', `Bearer ${key}`)
+        .then(data3 => data3.body.OneStopCenterList.map(item3 => new Meetup(item3)))
+        .then(meetUp => {
+          //FINAL RENDER OF ALL 3 CALLS
+          if (school.length != 0 || job.length != 0 || meetUp.length != 0) {
+            res.render('pages/results', { school: school, job: job, meetUp: meetUp })
+          } else {
+            res.render('pages/no-results')
+          }
+        })
+    })
   })
-  .catch(err => {
-    console.log(err); 
-  })
+    .catch(err => {
+      console.log(err);
+      res.render('pages/no-results')
+    })
 }
+
 
 // Data Constructors
 
