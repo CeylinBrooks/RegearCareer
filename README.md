@@ -33,6 +33,8 @@ Deploy: As a user, I want the application to perform quickly so that I can searc
 
 - Feature Tasks: Confirm that our server is responding as expected by entering your deployed URL. Then search for a profession. Verify data is displayed properly.
 
+
+
 # Entity Relationship Diagram
 
 ![Data Base](./DataBase.png)
@@ -50,3 +52,5 @@ Deploy: As a user, I want the application to perform quickly so that I can searc
 - List of meet-ups that are saved on the database from an api call when a user wants to save it to their collection.
 
 AUTHORS: Ceylin Brooks, Michael Campbell, Terrence Simms and Mark Duenas
+sources: 
+www.CareerOneStop.org
