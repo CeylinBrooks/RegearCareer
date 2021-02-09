@@ -13,8 +13,11 @@
   <main>
     <div class="items">
       <h2> Education Opportunities </h2>
-      <% school.forEach( val => {  %>
-
+     
+      <% if (school.length === 0) { %>
+         <h4>"NO DATA AVAILABLE"</h4>
+      <% } else { %>
+        <% school.forEach( val => {  %>
       <div class="name-pic">
         <h3> <%= val.schoolName %> </h3>
         <a href="<%= val.schoolUrl %>"> Find out more info </a>
@@ -29,11 +32,15 @@
         <p>~~</p>
       </div>
 
-    <% }) %>
+      <% }) %>
+    <% } %>
     </div>
 
     <div class="meetup">
       <h2> Job Centers </h2>
+      <% if (meetUp.length === 0) { %>
+        <h4>"NO DATA AVAILABLE"</h4>
+      <% } else { %>
       <% meetUp.forEach( val => { %>
 
         <div class="name-pic">
@@ -47,12 +54,16 @@
           <a href="/"> Expand </a>
           <p> ~~</p>
         </div>
-
       <% }) %>
+     <% } %>
     </div>
-
+    
+    
     <div class="jobs">
       <h2> Work Opportunities </h2>
+<% if (job.length === 0) { %>
+  <h4>"NO DATA AVAILABLE"</h4>
+<% } else { %>
       <% job.forEach( val => { %>
 
         <div class="name-pic">
@@ -68,7 +79,9 @@
         </div>
 
       <% }) %>
+  <% } %>
     </div>
+    
       
   </main>
   <footer>
@@ -76,3 +89,6 @@
   </footer>
 </body>
 </html>
+
+
+ 
