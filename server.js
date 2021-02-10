@@ -78,6 +78,7 @@ function resultHandler(req, res) {
           client.query(MEETUP_DB_CHECK, value)
             .then (meetUp => {
               if( school.rowCount > 0 || job.rowCount > 0 || meetUp.rowCount > 0) {
+                console.log("THIS IS THE SHCHOOL DATA FROM THE DB", school)
                 res.render('pages/results', {school: school.rows, job: job.rows, meetUp: meetUp.rows })
               } else {
 
@@ -100,6 +101,7 @@ function resultHandler(req, res) {
                           .then(meetUp => {
                           //FINAL RENDER OF ALL 3 CALLS
                             if (school.length != 0 || job.length != 0 || meetUp.length != 0) {
+
                               // SAVE TO DATABASE 
                               insertData(school, job, meetUp, keyword)
                               //RENDER API TO PAGE
@@ -129,21 +131,21 @@ function insertData(school, job, meetUp, keyword) {
   let MEETUP_INSERT = `INSERT INTO meetups (meet_up_name, address, phone, website, hours, keyword) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;`;
   
   school.forEach( item => {
-    let schoolVal = [item.schoolName, item.schoolUrl, item.address, item.city, item.stateName, item.zip, item.distance, item.programName, item.programLength, keyword];
+    let schoolVal = [item.school_name, item.school_url, item.address, item.city, item.state_name, item.zip, item.distance, item.program_name, item.program_length, keyword];
     client.query(SCHOOL_INSERT, schoolVal)
       .then( result => console.log("IM SAVING SCHOOL TO THE DATABASE ", result))
       .catch(err => console.log(err))
   })
 
   job.forEach( item => {
-    let jobVal = [item.jobTitle, item.company, item.date, item.url, item.location, keyword];
+    let jobVal = [item.job_title, item.company, item.date, item.url, item.location, keyword];
     client.query(JOB_INSERT, jobVal)
       .then( result => console.log("IM SAVING JOB TO DB", result))
       .catch(err => console.log(err))
   })
 
   meetUp.forEach( item => {
-    let meetUpVal = [item.meetUPName, item.address, item.phone, item.website, item.hours, keyword];
+    let meetUpVal = [item.meet_up_name, item.address, item.phone, item.website, item.hours, keyword];
     client.query(MEETUP_INSERT, meetUpVal)
       .then( result => console.log("IM SAVING MEETUP TO DATABASE", result))
       .catch(err => console.log(err))
@@ -164,7 +166,7 @@ function School(obj) {
   this.phone = obj.Phone
   this.distance = obj.Distance
   this.program_name = obj.ProgramName
-  this.program_length = obj.ProgramLength.Value
+  this.program_length = obj.ProgramLength[0].Value
 }
 
 function Career(obj) {
