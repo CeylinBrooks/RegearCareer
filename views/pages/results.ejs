@@ -4,32 +4,41 @@
   <%- include('../layout/head') %>
   <link href="https://fonts.googleapis.com/css2?family=BioRhyme&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=BioRhyme&family=MuseoModerno:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=BioRhyme&family=MuseoModerno:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
     <%- include('../layout/header') %>
   </header>
   <main>
-    <div class="schools">
+    <div class="items">
       <h2> Education Opportunities </h2>
+     
+      <% if (school.length === 0) { %>
+         <h4>"NO DATA AVAILABLE"</h4>
+      <% } else { %>
+        <% school.forEach( val => {  %>
       <div class="name-pic">
-        <h3> <%= school[0].schoolName %> </h3>
-        <a href="<%= school[0].schoolUrl %>"> Find out more info </a>
+        <h3> <%= val.school_name %> </h3>
+        <a href="<%= val.school_url %>"> Find out more info </a>
       </div>
       <div class="description">
-        <h4> <%= school[0].address %></h4>
-        <h4> <%= school[0].city %>, <%= school[0].stateName %> </h4>
-        <h6> Phone: <%= school[0].phone %> </h6>
-        <p> Program Name: <%= school[0].programName %></p>
-        <p> Program Length: <%= school[0].programLength[0].Value %> </p>
+        <h4> <%= val.address %></h4>
+        <h4> <%= val.city %>, <%= val.state_name %> </h4>
+        <h6> Phone: <%= val.phone %> </h6>
+        <p> Program Name: <%= val.program_name %></p>
+        <p> Program Length: <%= val.program_length %> </p>
         <a href="/"> Expand </a>
        
       </div>
+
+      <% }) %>
+    <% } %>
     </div>
 
     <div class="meetup">
       <h2> Job Centers </h2>
+
       <div class="name-pic">
         <h3> <%= meetUp[0].meetUpName %> </h3>
       </div>
@@ -43,8 +52,31 @@
       </div>
     </div>
 
+      <% if (meetUp.length === 0) { %>
+        <h4>"NO DATA AVAILABLE"</h4>
+      <% } else { %>
+      <% meetUp.forEach( val => { %>
+
+
+        <div class="name-pic">
+          <h3> <%= val.meet_up_name %> </h3>
+        </div>
+        <div class="description">
+          <h4> <%= val.address %> </h4>
+          <h6> <%= val.hours %> </h6>
+          <p> <%= val.phone %> </p>
+          <a href="<%= val.website %>"></a>
+          <a href="/"> Expand </a>
+          <p> ~~</p>
+        </div>
+      <% }) %>
+     <% } %>
+    </div>
+    
+    
     <div class="jobs">
       <h2> Work Opportunities </h2>
+
       <div class="name-pic">
         <h3> <%= job[0].jobTitle %> </h3>
       </div>
@@ -56,7 +88,29 @@
         <a href="/"> Expand </a>
         
       </div>
+
+<% if (job.length === 0) { %>
+  <h4>"NO DATA AVAILABLE"</h4>
+<% } else { %>
+      <% job.forEach( val => { %>
+
+        <div class="name-pic">
+          <h3> <%= val.job_title %> </h3>
+        </div>
+        <div class="description">
+          <h4> Company: <%= val.company %> </h4>
+          <h6> <%= val.location %>  </h6>
+          <p> val Posted: <%= val.date %>  </p>
+          <a href="<%= val.url %>"> Company Site </a>
+          <a href="/"> Expand </a>
+          <p>~~</p>
+        </div>
+
+      <% }) %>
+  <% } %>
+
     </div>
+    
       
   </main>
   <footer>
@@ -64,3 +118,6 @@
   </footer>
 </body>
 </html>
+
+
+ 
