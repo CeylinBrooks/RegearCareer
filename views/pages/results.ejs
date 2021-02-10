@@ -19,15 +19,15 @@
       <% } else { %>
         <% school.forEach( val => {  %>
       <div class="name-pic">
-        <h3> <%= val.schoolName %> </h3>
-        <a href="<%= val.schoolUrl %>"> Find out more info </a>
+        <h3> <%= val.school_name %> </h3>
+        <a href="<%= val.school_url %>"> Find out more info </a>
       </div>
       <div class="description">
         <h4> <%= val.address %></h4>
-        <h4> <%= val.city %>, <%= val.stateName %> </h4>
+        <h4> <%= val.city %>, <%= val.state_name %> </h4>
         <h6> Phone: <%= val.phone %> </h6>
-        <p> Program Name: <%= val.programName %></p>
-        <p> Program Length: <%= val.programLength.Value %> </p>
+        <p> Program Name: <%= val.program_name %></p>
+        <p> Program Length: <%= val.program_length %> </p>
         <a href="/"> Expand </a>
         <p>~~</p>
       </div>
@@ -44,7 +44,7 @@
       <% meetUp.forEach( val => { %>
 
         <div class="name-pic">
-          <h3> <%= val.meetUpName %> </h3>
+          <h3> <%= val.meet_up_name %> </h3>
         </div>
         <div class="description">
           <h4> <%= val.address %> </h4>
@@ -67,7 +67,7 @@
       <% job.forEach( val => { %>
 
         <div class="name-pic">
-          <h3> <%= val.jobTitle %> </h3>
+          <h3> <%= val.job_title %> </h3>
         </div>
         <div class="description">
           <h4> Company: <%= val.company %> </h4>
