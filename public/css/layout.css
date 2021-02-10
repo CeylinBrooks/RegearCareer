@@ -100,19 +100,17 @@ margin:10px;
 border-radius: 25px;
 border: none;
 box-shadow:  inset 2px 2px 5px; 
-
 }
+
 .links2 {
     background: none;
 }
-h3 {
-    background: none;
+
+.schools h2 h3 h4 h6 p{
+    background: transparent;
     }
 
-    h4 {
-        background: none;
-    }
-
+    
 body {
     text-align: center;
     padding: 20px;
@@ -121,6 +119,7 @@ body {
 
 }
 p{
+    background: none;
     display: grid;
     border: none;
         margin: 25px;   
@@ -193,7 +192,7 @@ p{
         grid-gap:20px;
         /* grid-template-columns: repeat(auto-fit); */
         /* overflow:auto; */
-        border-radius: 50%;  
+        /* border-radius: 25%;    */
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
         margin: 8px;
         align-items: center;
@@ -203,9 +202,6 @@ p{
     }
 
   
-
-
-
     .groupMember img {
             size: 50px;
             border-radius: 50%;

@@ -28,9 +28,10 @@
         <h4> <%= val.city %>, <%= val.state_name %> </h4>
         <p> Program Name: <%= val.program_name %></p>
         <p> Program Length: <%= val.program_length %> </p>
-        <a href="https://<%= val.school_url %> "> <%= val.school_url %> </a>
-        <!-- <a href="/"> Expand </a> -->
-        <p>~~</p>
+
+        <a href="/"> Expand </a>
+       
+
       </div>
 
       <% }) %>
@@ -39,10 +40,25 @@
 
     <div class="meetup">
       <h2> Job Centers </h2>
+
+      <div class="name-pic">
+        <h3> <%= meetUp[0].meetUpName %> </h3>
+      </div>
+      <div class="description">
+        <h4> <%= meetUp[0].address %> </h4>
+        <h6> <%= meetUp[0].hours %> </h6>
+        <p> <%= meetUp[0].phone %> </p>
+        <a href="<%= meetUp[0].website %>"></a>
+        <a href="/"> Expand </a>
+       
+      </div>
+    </div>
+
       <% if (meetUp.length === 0) { %>
         <h4>"NO DATA AVAILABLE"</h4>
       <% } else { %>
       <% meetUp.forEach( val => { %>
+
 
         <div class="name-pic">
           <h3> <%= val.meet_up_name %> </h3>
@@ -62,6 +78,19 @@
     
     <div class="jobs">
       <h2> Work Opportunities </h2>
+
+      <div class="name-pic">
+        <h3> <%= job[0].jobTitle %> </h3>
+      </div>
+      <div class="description">
+        <h4> Company: <%= job[0].company %> </h4>
+        <h6> <%= job[0].location %>  </h6>
+        <p> Job Posted: <%= job[0].date %>  </p>
+        <a href="<%= job[0].url %>"> Company Site </a>
+        <a href="/"> Expand </a>
+        
+      </div>
+
 <% if (job.length === 0) { %>
   <h4>"NO DATA AVAILABLE"</h4>
 <% } else { %>
@@ -81,6 +110,7 @@
 
       <% }) %>
   <% } %>
+
     </div>
     
       
