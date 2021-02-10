@@ -1,28 +1,38 @@
 DROP TABLE IF EXISTS schools;
 DROP TABLE IF EXISTS meetups;
 DROP TABLE IF EXISTS jobs;
-DROP TABLE IF EXISTS users CASCADE;
 
 
 CREATE TABLE schools (
   school_id SERIAL PRIMARY KEY,
-  name VARCHAR(255),
-  type VARCHAR(255),
-  description VARCHAR(255),
-  tuition INTEGER
+  school_name VARCHAR(255),
+  school_url VARCHAR(255),
+  address VARCHAR(255),
+  city VARCHAR(255),
+  state_name VARCHAR(255),
+  zip VARCHAR(255),
+  distance VARCHAR(255),
+  program_name VARCHAR(255),
+  program_length VARCHAR(255),
+  keyword VARCHAR(255)
 );
 
 CREATE TABLE jobs (
   job_id SERIAL PRIMARY KEY,
-  title VARCHAR(255),
-  salary INTEGER,
-  seniority_level VARCHAR(255)
+  job_title VARCHAR(255),
+  company VARCHAR(255),
+  date VARCHAR(255),
+  url VARCHAR(255),
+  location VARCHAR(255),
+  keyword VARCHAR(255)
 );
 
 CREATE TABLE meetups (
   meet_up_id SERIAL PRIMARY KEY,
-  name VARCHAR(255),
+  meet_up_name VARCHAR(255),
   address VARCHAR(255),
+  phone VARCHAR(255),
   website VARCHAR(255),
-  hours VARCHAR(255)
+  hours VARCHAR(255),
+  keyword VARCHAR(255)
 );
