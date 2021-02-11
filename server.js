@@ -78,7 +78,6 @@ function resultHandler(req, res) {
           client.query(MEETUP_DB_CHECK, value)
             .then (meetUp => {
               if( school.rowCount > 0 || job.rowCount > 0 || meetUp.rowCount > 0) {
-                console.log("THIS IS THE SHCHOOL DATA FROM THE DB", school)
                 res.render('pages/results', {school: school.rows, job: job.rows, meetUp: meetUp.rows })
               } else {
 
