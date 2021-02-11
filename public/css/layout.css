@@ -180,7 +180,7 @@ p{
       border-radius: 25px;
       box-shadow:  inset 2px 2px 5px; 
     }
-   p, h4, h6 {
+   div, p, h3, h4, h6 {
         background: none;
     }
     
@@ -228,3 +228,7 @@ p{
       font-family: 'MuseoModerno', cursive;
       margin-top: 10px;
   }
+
+a {
+    text-decoration: none;
+}
